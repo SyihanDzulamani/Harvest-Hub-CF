@@ -34,7 +34,7 @@
 
     if (scrollTop > lastScrollTop && scrollTop > selectHeader.offsetHeight) {
       selectHeader.style.setProperty('position', 'sticky', 'important');
-      selectHeader.style.top = `-${header.offsetHeight + 50}px`;
+      selectHeader.style.top = `-${selectHeader.offsetHeight + 50}px`;
     } else if (scrollTop > selectHeader.offsetHeight) {
       selectHeader.style.setProperty('position', 'sticky', 'important');
       selectHeader.style.top = "0";
@@ -50,12 +50,12 @@
    */
   const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
 
-  function mobileNavToogle() {
+  function mobileNavToggle() {
     document.querySelector('body').classList.toggle('mobile-nav-active');
     mobileNavToggleBtn.classList.toggle('bi-list');
     mobileNavToggleBtn.classList.toggle('bi-x');
   }
-  mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+  mobileNavToggleBtn.addEventListener('click', mobileNavToggle);
 
   /**
    * Hide mobile nav on same-page/hash links
@@ -63,10 +63,9 @@
   document.querySelectorAll('#navmenu a').forEach(navmenu => {
     navmenu.addEventListener('click', () => {
       if (document.querySelector('.mobile-nav-active')) {
-        mobileNavToogle();
+        mobileNavToggle();
       }
     });
-
   });
 
   /**
@@ -94,14 +93,15 @@
   /**
    * Scroll top button
    */
-  let scrollTop = document.querySelector('.scroll-top');
+  const scrollTopButton = document.querySelector('.scroll-top');
 
   function toggleScrollTop() {
-    if (scrollTop) {
-      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+    if (scrollTopButton) {
+      window.scrollY > 100 ? scrollTopButton.classList.add('active') : scrollTopButton.classList.remove('active');
     }
   }
-  scrollTop.addEventListener('click', (e) => {
+
+  scrollTopButton.addEventListener('click', (e) => {
     e.preventDefault();
     window.scrollTo({
       top: 0,

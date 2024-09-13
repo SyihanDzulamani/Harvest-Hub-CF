@@ -1,6 +1,6 @@
 // server.js
 const createServer = require('./config/serverConfig');
-const routes = require('./routes');
+const routes = require('./src/routes');
 
 const init = async () => {
     const server = await createServer();

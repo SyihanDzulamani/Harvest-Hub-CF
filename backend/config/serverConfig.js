@@ -7,6 +7,10 @@ const createServer = async () => {
         port: 3000,
         host: 'localhost',
         routes: {
+            cors: {
+                origin: ['*'], // Mengizinkan semua origin
+                additionalHeaders: ['cache-control', 'x-requested-with'], // Tambahkan header yang diperlukan
+              },
             files: {
                 relativeTo: Path.join(__dirname, '../../frontend')
             }
@@ -17,5 +21,7 @@ const createServer = async () => {
 
     return server;
 };
+
+
 
 module.exports = createServer;

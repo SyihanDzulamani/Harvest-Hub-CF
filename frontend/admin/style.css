@@ -1,0 +1,16 @@
+/* head */
+.header{
+    background-color: aqua;
+    height: 20%;
+}
+.logo img{
+    height: 20px;
+    background-color: black;
+}
+main{
+    background-color: aquamarine;
+}
+footer{
+    background-color: black;
+    color: white;
+}
